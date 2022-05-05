@@ -1,6 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="HackatonProject.Views.HomeView" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <StackLayout>
-        <Label HorizontalOptions="CenterAndExpand" Text="Welcome to Xamarin.Forms!" VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+<ContentPage
+    x:Class="HackatonProject.Views.HomeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vonage="clr-namespace:Xamarin.Forms.Vonage;assembly=Xamarin.Forms.Vonage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="80" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <vonage:VonageSubscriberView Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+        <vonage:VonagePublisherView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
+    </Grid>
 </ContentPage>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HackatonProject.Views.ProfileView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModes="clr-namespace:HackatonProject.ViewModels">
+    <ContentPage.BindingContext>
+        <viewModes:ProfileViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout>
+        <Label
+            HorizontalOptions="CenterAndExpand"
+            Text="{Binding User.Name}"
+            TextColor="White"
+            VerticalOptions="CenterAndExpand" />
+        <Label
+            HorizontalOptions="CenterAndExpand"
+            Text="{Binding User.Email}"
+            TextColor="White"
+            VerticalOptions="CenterAndExpand" />
+        <Label
+            HorizontalOptions="CenterAndExpand"
+            Text="{Binding User.Password}"
+            TextColor="White"
+            VerticalOptions="CenterAndExpand" />
+    </StackLayout>
+</ContentPage>

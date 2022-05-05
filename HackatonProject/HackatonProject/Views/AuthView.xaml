@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HackatonProject.Views.AuthView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels">
+    <ContentPage.BindingContext>
+        <viewModels:AuthViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Button Command="{Binding ToSignInViewCommand}" Text="Sign In" />
+        <Button Command="{Binding ToLogInViewCommand}" Text="Log In" />
+    </StackLayout>
+</ContentPage>

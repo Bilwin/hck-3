@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HackatonProject.Views.SignInView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Frame Style="{StaticResource InputBorder}">
+            <StackLayout Style="{StaticResource InputContainer}">
+                <Label Text="Имя" />
+                <Editor Placeholder="Dr. Bright" Text="{Binding UserToSignIn.Name}" />
+            </StackLayout>
+        </Frame>
+        <Frame Style="{StaticResource InputBorder}">
+            <StackLayout Style="{StaticResource InputContainer}">
+                <Label Text="Почта" />
+                <Editor Placeholder="meow20042006@gmail.com" Text="{Binding UserToSignIn.Email}" />
+            </StackLayout>
+        </Frame>
+        <Frame Style="{StaticResource InputBorder}">
+            <StackLayout Style="{StaticResource InputContainer}">
+                <Label Text="Пароль" />
+                <Editor Placeholder="12345678" Text="{Binding UserToSignIn.Password}" />
+            </StackLayout>
+        </Frame>
+        <Button Margin="0,15,0,0" Command="{Binding SignInCommand}" Text="Register" />
+    </StackLayout>
+</ContentPage>
