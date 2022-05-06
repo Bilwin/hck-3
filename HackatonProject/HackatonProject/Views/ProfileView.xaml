@@ -8,21 +8,18 @@
         <viewModes:ProfileViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout>
-        <Label
-            HorizontalOptions="CenterAndExpand"
-            Text="{Binding User.Name}"
-            TextColor="White"
-            VerticalOptions="CenterAndExpand" />
-        <Label
-            HorizontalOptions="CenterAndExpand"
-            Text="{Binding User.Email}"
-            TextColor="White"
-            VerticalOptions="CenterAndExpand" />
-        <Label
-            HorizontalOptions="CenterAndExpand"
-            Text="{Binding User.Password}"
-            TextColor="White"
-            VerticalOptions="CenterAndExpand" />
+    <StackLayout Margin="15">
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Name - " TextColor="White" />
+            <Label Text="{Binding User.Name}" TextColor="White" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Email - " TextColor="White" />
+            <Label Text="{Binding User.Email}" TextColor="White" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Password - " TextColor="White" />
+            <Label Text="{Binding User.Password}" TextColor="White" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using HackatonProject.ViewModels;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace HackatonProject.Models
@@ -7,15 +8,17 @@ namespace HackatonProject.Models
     {
         private int _id;
         private string _name;
+        private string _phone;
         private string _email;
         private string _password;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public User(int id, string name, string email, string password)
+        public User(int id, string name, string phone, string email, string password)
         {
             Id = id;
             Name = name;
+            Phone = phone;
             Email = email;
             Password = password;
         }
@@ -39,6 +42,16 @@ namespace HackatonProject.Models
             {
                 _name = value;
                 InvokePropertyChanged(nameof(Name));
+            }
+        }
+
+        public string Phone
+        {
+            get => _phone;
+            set
+            {
+                _phone = value;
+                InvokePropertyChanged(nameof(Phone));
             }
         }
 
@@ -66,6 +79,7 @@ namespace HackatonProject.Models
         {
             Id = user.Id;
             Name = user.Name;
+            Phone = user.Phone;
             Email = user.Email;
             Password = user.Password;
         }

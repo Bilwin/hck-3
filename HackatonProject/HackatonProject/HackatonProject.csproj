@@ -12,6 +12,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\Onest-Font-Family\TTF\OnestBlack1602-hint.ttf" />
+    <None Remove="Fonts\Onest-Font-Family\TTF\OnestBold1602-hint.ttf" />
+    <None Remove="Fonts\Onest-Font-Family\TTF\OnestExtraBold1602-hint.ttf" />
+    <None Remove="Fonts\Onest-Font-Family\TTF\OnestLight1602-hint.ttf" />
+    <None Remove="Fonts\Onest-Font-Family\TTF\OnestMedium1602-hint.ttf" />
+    <None Remove="Fonts\Onest-Font-Family\TTF\OnestRegular1602-hint.ttf" />
+    <None Remove="Fonts\Onest-Font-Family\TTF\OnestThin1602-hint.ttf" />
+    <None Remove="Images\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Fonts\Onest-Font-Family\TTF\OnestBlack1602-hint.ttf" />
+    <EmbeddedResource Include="Fonts\Onest-Font-Family\TTF\OnestBold1602-hint.ttf" />
+    <EmbeddedResource Include="Fonts\Onest-Font-Family\TTF\OnestExtraBold1602-hint.ttf" />
+    <EmbeddedResource Include="Fonts\Onest-Font-Family\TTF\OnestLight1602-hint.ttf" />
+    <EmbeddedResource Include="Fonts\Onest-Font-Family\TTF\OnestMedium1602-hint.ttf" />
+    <EmbeddedResource Include="Fonts\Onest-Font-Family\TTF\OnestRegular1602-hint.ttf" />
+    <EmbeddedResource Include="Fonts\Onest-Font-Family\TTF\OnestThin1602-hint.ttf" />
+    <EmbeddedResource Include="Images\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.24" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
@@ -29,6 +51,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\GridView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\HomeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -36,9 +61,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ProfileView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\WelcomeView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

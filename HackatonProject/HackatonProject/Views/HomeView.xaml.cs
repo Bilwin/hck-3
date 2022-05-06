@@ -17,7 +17,7 @@ namespace HackatonProject.Views
             {
                 return;
             }
-            var b = CrossVonage.Current.TrySendMessage("Lexa");
+            bool b = CrossVonage.Current.TrySendMessage("Lexa");
         }
     }
 }

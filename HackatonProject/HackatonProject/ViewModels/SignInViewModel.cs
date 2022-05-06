@@ -1,5 +1,4 @@
 ﻿using HackatonProject.Models;
-using HackatonProject.Views;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -23,7 +22,7 @@ namespace HackatonProject.ViewModels
 
         private void SignIn(object obj)
         {
-            if (string.IsNullOrEmpty(UserToSignIn.Name) || string.IsNullOrEmpty(UserToSignIn.Email) || string.IsNullOrEmpty(UserToSignIn.Password))
+            if (string.IsNullOrEmpty(UserToSignIn.Name) || string.IsNullOrEmpty(UserToSignIn.Email) || string.IsNullOrEmpty(UserToSignIn.Phone) || string.IsNullOrEmpty(UserToSignIn.Password))
             {
                 _signInView.DisplayAlert("Error", "One of the fields is empty", "Accept");
                 return;

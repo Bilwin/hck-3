@@ -10,10 +10,10 @@ namespace HackatonProject.ViewModels
     {
         private readonly AppContext _appContext;
         private readonly Page _signInView;
-        private readonly INavigation _navigation;
 
         public ICommand LogInCommand { get; set; }
-        public ICommand ProfileCommand { get; set; }
+        public NavigationCommand<ProfileView> ToProfileCommand { get; set; }
+
         public User UserToLogIn { get; set; } = new();
         public User LoggedUser { get; set; }
 
@@ -22,13 +22,9 @@ namespace HackatonProject.ViewModels
             _signInView = page;
             LoggedUser = DependencyService.Get<User>();
             _appContext = DependencyService.Get<AppContext>();
-            _navigation = DependencyService.Get<INavigation>();
+            INavigation navigation = DependencyService.Get<INavigation>();
 
-            ProfileCommand = new Command(() =>
-            {
-                _navigation.PushAsync(new ProfileView());
-            });
-
+            ToProfileCommand = new(navigation);
             LogInCommand = new Command(LogIn);
         }
 
@@ -40,7 +36,7 @@ namespace HackatonProject.ViewModels
                 return;
             }
 
-            var user = _appContext.Users.ToList().Where(user => user.Email == UserToLogIn.Email && user.Password == UserToLogIn.Password).FirstOrDefault();
+            User user = _appContext.Users.ToList().Where(user => user.Email == UserToLogIn.Email && user.Password == UserToLogIn.Password).FirstOrDefault();
 
             if (user == null)
             {

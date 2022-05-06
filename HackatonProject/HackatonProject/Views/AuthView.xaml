@@ -3,13 +3,30 @@
     x:Class="HackatonProject.Views.AuthView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels">
+    xmlns:local="clr-namespace:HackatonProject.Views"
+    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels"
+    Style="{StaticResource ViewBase}">
     <ContentPage.BindingContext>
         <viewModels:AuthViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Button Command="{Binding ToSignInViewCommand}" Text="Sign In" />
-        <Button Command="{Binding ToLogInViewCommand}" Text="Log In" />
-    </StackLayout>
+    <local:GridView>
+        <local:GridView.Body>
+            <Grid>
+                <Image
+                    Margin="0,0,0,150"
+                    HeightRequest="134"
+                    Source="logo.png"
+                    WidthRequest="300" />
+                <StackLayout VerticalOptions="End">
+                    <Button Command="{Binding ToSignInViewCommand}" Style="{StaticResource MainButton}" Text="Регистрация" />
+                    <Button
+                        Margin="0,25,0,0"
+                        Command="{Binding ToLogInViewCommand}"
+                        Style="{StaticResource MinorButton}"
+                        Text="Войти" />
+                </StackLayout>
+            </Grid>
+        </local:GridView.Body>
+    </local:GridView>
 </ContentPage>

@@ -3,8 +3,11 @@
     x:Class="HackatonProject.Views.LogInView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels">
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+    xmlns:local="clr-namespace:HackatonProject"
+    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels"
+    xmlns:views="clr-namespace:HackatonProject.Views"
+    Style="{StaticResource ViewBase}">
+    <!--<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Frame Style="{StaticResource InputBorder}">
             <StackLayout Style="{StaticResource InputContainer}">
                 <Label Text="Почта" />
@@ -18,6 +21,36 @@
             </StackLayout>
         </Frame>
         <Button Margin="0,15,0,0" Command="{Binding LogInCommand}" Text="Log In" />
-        <Button Margin="0,15,0,0" Command="{Binding ProfileCommand}" Text="Profile" />
-    </StackLayout>
+        <Button Margin="0,15,0,0" Command="{Binding ToProfileCommand}" Text="Profile" />
+    </StackLayout>-->
+    <views:GridView>
+        <views:GridView.Body>
+            <Grid Margin="0,22,0,0" RowDefinitions="0.6*, 1.4*, 1*">
+                <Label Style="{StaticResource Headline}" Text="Войти" />
+                <StackLayout Grid.Row="1" Spacing="11">
+                    <StackLayout Spacing="10">
+                        <Label Style="{StaticResource RegularText}" Text="Электронная почта" />
+                        <Frame Style="{StaticResource InputFrame}">
+                            <local:CustomEntry Placeholder="four@gmail.com" Style="{StaticResource InputEntry}" Text="{Binding UserToLogIn.Email}" />
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Spacing="10">
+                        <Label Style="{StaticResource RegularText}" Text="Пароль" />
+                        <Frame Style="{StaticResource InputFrame}">
+                            <local:CustomEntry
+                                IsPassword="True"
+                                Placeholder="12345678"
+                                Style="{StaticResource InputEntry}"
+                                Text="{Binding UserToLogIn.Password}" />
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Spacing="25" VerticalOptions="End">
+                    <Button Style="{StaticResource MinorButton}" Text="Вход через Госуслуги" />
+                    <Button Style="{StaticResource MinorButton}" Text="Вход через VK ID" />
+                    <Button Command="{Binding LogInCommand}" Style="{StaticResource MainButton}" Text="Войти по паролю" />
+                </StackLayout>
+            </Grid>
+        </views:GridView.Body>
+    </views:GridView>
 </ContentPage>

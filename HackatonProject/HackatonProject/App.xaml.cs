@@ -13,7 +13,7 @@ namespace HackatonProject
             InitializeComponent();
             InitializeDatabase();
 
-            MainPage = new NavigationPage(new WelcomeView());
+            MainPage = new NavigationPage(new AuthView());
         }
 
         private static void InitializeDatabase()

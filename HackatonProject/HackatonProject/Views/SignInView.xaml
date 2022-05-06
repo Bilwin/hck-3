@@ -3,8 +3,11 @@
     x:Class="HackatonProject.Views.SignInView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels">
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+    xmlns:local="clr-namespace:HackatonProject"
+    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels"
+    xmlns:views="clr-namespace:HackatonProject.Views"
+    Style="{StaticResource ViewBase}">
+    <!--<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Frame Style="{StaticResource InputBorder}">
             <StackLayout Style="{StaticResource InputContainer}">
                 <Label Text="Имя" />
@@ -24,5 +27,48 @@
             </StackLayout>
         </Frame>
         <Button Margin="0,15,0,0" Command="{Binding SignInCommand}" Text="Register" />
-    </StackLayout>
+    </StackLayout>-->
+    <views:GridView>
+        <views:GridView.Body>
+            <Grid Margin="0,22,0,0" RowDefinitions="0.8*, 3*, 1*">
+                <Label Style="{StaticResource Headline}" Text="Регистрация" />
+                <StackLayout Grid.Row="1" Spacing="11">
+                    <StackLayout Spacing="10">
+                        <Label Style="{StaticResource RegularText}" Text="Никнейм" />
+                        <Frame Style="{StaticResource InputFrame}">
+                            <local:CustomEntry Placeholder="xxyy" Style="{StaticResource InputEntry}" Text="{Binding UserToSignIn.Name}" />
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Spacing="10">
+                        <Label Style="{StaticResource RegularText}" Text="Номер телефона" />
+                        <Frame Style="{StaticResource InputFrame}">
+                            <local:CustomEntry Placeholder="123456789" Style="{StaticResource InputEntry}" Text="{Binding UserToSignIn.Phone}" />
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Spacing="10">
+                        <Label Style="{StaticResource RegularText}" Text="Электронная почта" />
+                        <Frame Style="{StaticResource InputFrame}">
+                            <local:CustomEntry Placeholder="four@gmail.com" Style="{StaticResource InputEntry}" Text="{Binding UserToSignIn.Email}" />
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout Spacing="10">
+                        <Label Style="{StaticResource RegularText}" Text="Пароль" />
+                        <Frame Style="{StaticResource InputFrame}">
+                            <local:CustomEntry
+                                IsPassword="True"
+                                Placeholder="12345678"
+                                Style="{StaticResource InputEntry}"
+                                Text="{Binding UserToSignIn.Password}" />
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+                <Button
+                    Grid.Row="2"
+                    Command="{Binding SignInCommand}"
+                    Style="{StaticResource MainButton}"
+                    Text="Зарегистрироваться"
+                    VerticalOptions="End" />
+            </Grid>
+        </views:GridView.Body>
+    </views:GridView>
 </ContentPage>

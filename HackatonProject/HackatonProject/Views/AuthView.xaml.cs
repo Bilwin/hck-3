@@ -6,6 +6,8 @@ namespace HackatonProject.Views
     {
         public AuthView()
         {
+            DependencyService.RegisterSingleton(Navigation);
+
             InitializeComponent();
         }
     }
