@@ -11,9 +11,9 @@ namespace HackatonProject.ViewModels
 
         public event EventHandler CanExecuteChanged;
 
-        public NavigationCommand(INavigation navigation)
+        public NavigationCommand()
         {
-            _navigation = navigation;
+            _navigation = DependencyService.Get<INavigation>();
         }
 
         public bool CanExecute(object parameter) => true;

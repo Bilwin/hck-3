@@ -19,7 +19,16 @@
     <None Remove="Fonts\Onest-Font-Family\TTF\OnestMedium1602-hint.ttf" />
     <None Remove="Fonts\Onest-Font-Family\TTF\OnestRegular1602-hint.ttf" />
     <None Remove="Fonts\Onest-Font-Family\TTF\OnestThin1602-hint.ttf" />
+    <None Remove="Images\arrow.png" />
+    <None Remove="Images\avatar.png" />
+    <None Remove="Images\blueArrow.png" />
+    <None Remove="Images\clock.png" />
+    <None Remove="Images\doggy.png" />
+    <None Remove="Images\eye.png" />
     <None Remove="Images\logo.png" />
+    <None Remove="Images\paperClip.png" />
+    <None Remove="Images\redDot.png" />
+    <None Remove="Images\teamLogo.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,11 +39,21 @@
     <EmbeddedResource Include="Fonts\Onest-Font-Family\TTF\OnestMedium1602-hint.ttf" />
     <EmbeddedResource Include="Fonts\Onest-Font-Family\TTF\OnestRegular1602-hint.ttf" />
     <EmbeddedResource Include="Fonts\Onest-Font-Family\TTF\OnestThin1602-hint.ttf" />
+    <EmbeddedResource Include="Images\arrow.png" />
+    <EmbeddedResource Include="Images\avatar.png" />
+    <EmbeddedResource Include="Images\blueArrow.png" />
+    <EmbeddedResource Include="Images\clock.png" />
+    <EmbeddedResource Include="Images\doggy.png" />
+    <EmbeddedResource Include="Images\eye.png" />
     <EmbeddedResource Include="Images\logo.png" />
+    <EmbeddedResource Include="Images\paperClip.png" />
+    <EmbeddedResource Include="Images\redDot.png" />
+    <EmbeddedResource Include="Images\teamLogo.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.4.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.24" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.24" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.2" />
@@ -51,6 +70,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\FeedView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\GridView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -58,6 +80,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LogInView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\NavbarView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ProfileView.xaml">

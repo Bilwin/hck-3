@@ -12,7 +12,8 @@ namespace HackatonProject.ViewModels
         private readonly Page _signInView;
 
         public ICommand LogInCommand { get; set; }
-        public NavigationCommand<ProfileView> ToProfileCommand { get; set; }
+        public NavigationCommand<ProfileView> ToProfileCommand { get; set; } = new();
+        public NavigationCommand<FeedView> ToFeedCommand { get; set; } = new();
 
         public User UserToLogIn { get; set; } = new();
         public User LoggedUser { get; set; }
@@ -20,11 +21,10 @@ namespace HackatonProject.ViewModels
         public LogInViewModel(Page page)
         {
             _signInView = page;
+
             LoggedUser = DependencyService.Get<User>();
             _appContext = DependencyService.Get<AppContext>();
-            INavigation navigation = DependencyService.Get<INavigation>();
 
-            ToProfileCommand = new(navigation);
             LogInCommand = new Command(LogIn);
         }
 
@@ -46,6 +46,8 @@ namespace HackatonProject.ViewModels
 
             _signInView.DisplayAlert("Success", "You Logged in", "Accept");
             LoggedUser.SetValues(user);
+
+            ToFeedCommand.Execute(null);
         }
     }
 }

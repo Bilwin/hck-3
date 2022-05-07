@@ -5,15 +5,9 @@ namespace HackatonProject.ViewModels
 {
     public class AuthViewModel
     {
-        public NavigationCommand<LogInView> ToLogInViewCommand { get; set; }
-        public NavigationCommand<SignInView> ToSignInViewCommand { get; set; }
+        public NavigationCommand<LogInView> ToLogInViewCommand { get; set; } = new();
+        public NavigationCommand<SignInView> ToSignInViewCommand { get; set; } = new();
 
-        public AuthViewModel()
-        {
-            INavigation navigation = DependencyService.Get<INavigation>();
-
-            ToLogInViewCommand = new(navigation);
-            ToSignInViewCommand = new(navigation);
-        }
+        public AuthViewModel() { }
     }
 }

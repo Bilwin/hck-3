@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="HackatonProject.Views.NavbarView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:HackatonProject.ViewModels">
+    <ContentView.BindingContext>
+        <viewModels:NavbarViewModel />
+    </ContentView.BindingContext>
+    <Grid Margin="0,15">
+        <ImageButton
+            BackgroundColor="Transparent"
+            Command="{Binding ToFeedCommand}"
+            HeightRequest="40"
+            HorizontalOptions="Start"
+            Source="logo.png"
+            WidthRequest="90" />
+        <StackLayout HorizontalOptions="End" Orientation="Horizontal" Spacing="10">
+            <Label Style="{StaticResource BoldRegularText}" Text="{Binding User.Name}" VerticalOptions="Center" />
+            <ImageButton Command="{Binding ToProfileCommand}" Source="avatar.png" />
+        </StackLayout>
+    </Grid>
+</ContentView>
