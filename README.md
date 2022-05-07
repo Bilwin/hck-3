@@ -2,8 +2,8 @@
   <h1>#MPIT2022 — Track 2</h1>
 
   <p>
-    <strong>An ecosystem of libraries and tools for writing and executing extremely fast GPU code fully in 
-    <a href="https://github.com/xamarin/Xamarin.Forms">Rust</a></strong>
+    <strong>A user congress and exhibition application written in C# based on
+    <a href="https://github.com/xamarin/Xamarin.Forms">Xamarin Forms</a></strong>
   </p>
   <strong>⚠️ The project is still in early development, expect bugs, safety issues, and things that don't work ⚠️</strong>
 </div>
