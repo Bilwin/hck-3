@@ -1,5 +1,4 @@
 ﻿using HackatonProject.Views;
-using Xamarin.Forms;
 
 namespace HackatonProject.ViewModels
 {

@@ -16,7 +16,10 @@ namespace HackatonProject.ViewModels
             _navigation = DependencyService.Get<INavigation>();
         }
 
-        public bool CanExecute(object parameter) => true;
+        public bool CanExecute(object parameter)
+        {
+            return true;
+        }
 
         public void Execute(object parameter)
         {

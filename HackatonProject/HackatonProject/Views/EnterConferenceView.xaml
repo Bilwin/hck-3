@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HackatonProject.Views.EnterConferenceView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:HackatonProject"
+    xmlns:views="clr-namespace:HackatonProject.Views"
+    xmlns:viewsModels="clr-namespace:HackatonProject.ViewModels"
+    Style="{StaticResource ViewBase}">
+    <ContentPage.BindingContext>
+        <viewsModels:CreateConferenceViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <Grid Margin="30,0" RowDefinitions="70, *, 0.5*">
+            <views:NavbarView />
+            <StackLayout Grid.Row="1" Margin="0,15,0,0" Spacing="15">
+                <Label Style="{StaticResource Headline}" Text="Войти в конференцию" />
+                <StackLayout>
+                    <Label Style="{StaticResource RegularText}" Text="Владелец" />
+                    <Frame Padding="5" Style="{StaticResource InputFrame}">
+                        <local:CustomEntry Placeholder="Good1Cheese" Style="{StaticResource InputEntry}" Text="{Binding ConferenceTitle}" />
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Label Style="{StaticResource RegularText}" Text="Пароль" />
+                    <Frame Padding="5" Style="{StaticResource InputFrame}">
+                        <local:CustomEntry
+                            IsPassword="True"
+                            Placeholder="12345678"
+                            Style="{StaticResource InputEntry}"
+                            Text="{Binding ConferenceTitle}" />
+                    </Frame>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <CheckBox Color="{StaticResource WhiteBlue}" />
+                    <Label Style="{StaticResource RegularText}" Text="Запомнить" VerticalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+            <Grid
+                Grid.Row="2"
+                Margin="0,25"
+                ColumnDefinitions="1*, 1.4*"
+                RowSpacing="15"
+                VerticalOptions="End">
+                <Button
+                    BackgroundColor="#DE3C4B"
+                    ImageSource=""
+                    Style="{StaticResource FeedButton}"
+                    Text="Отмена"
+                    TextTransform="None" />
+                <Button
+                    Grid.Column="1"
+                    Command="{Binding CreateConferenceCommand}"
+                    ContentLayout="Right, 100"
+                    ImageSource=""
+                    Style="{StaticResource FeedButton}"
+                    Text="Подтвердить" />
+            </Grid>
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,9 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application x:Class="HackatonProject.App" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+<Application
+    x:Class="HackatonProject.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:HackatonProject.Converters">
     <Application.Resources>
         <ResourceDictionary>
+            <Color x:Key="White">#FBF9FF</Color>
+            <Color x:Key="DarkWhite">#F1F1F1</Color>
+            <Color x:Key="Blue">#306BF2</Color>
+            <Color x:Key="WhiteBlue">#477EFF</Color>
+            <Color x:Key="Gray">#94949E</Color>
+            <Color x:Key="Black">#1D1E2C</Color>
+            <Color x:Key="Red">#DE3C4B</Color>
+
+            <converters:InvertBoolConverter x:Key="InvertBoolConverter" />
             <Style x:Key="ViewBase" TargetType="ContentPage">
-                <Setter Property="BackgroundColor" Value="#FBF9FF" />
+                <Setter Property="BackgroundColor" Value="{StaticResource White}" />
                 <Setter Property="NavigationPage.HasNavigationBar" Value="False" />
             </Style>
             <Style x:Key="ButtonBase" TargetType="Button">
@@ -16,11 +29,11 @@
             </Style>
             <Style x:Key="MinorButton" BasedOn="{StaticResource ButtonBase}" TargetType="Button">
                 <Setter Property="TextColor" Value="#1D1E2C" />
-                <Setter Property="BackgroundColor" Value="#F1F1F1" />
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkWhite}" />
             </Style>
             <Style x:Key="MainButton" BasedOn="{StaticResource ButtonBase}" TargetType="Button">
-                <Setter Property="TextColor" Value="#FBF9FF" />
-                <Setter Property="BackgroundColor" Value="#306BF2" />
+                <Setter Property="TextColor" Value="{StaticResource White}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource Blue}" />
             </Style>
             <Style x:Key="FeedButton" BasedOn="{StaticResource MainButton}" TargetType="Button">
                 <Setter Property="CornerRadius" Value="5" />
@@ -32,14 +45,14 @@
             <Style x:Key="RegularText" TargetType="Label">
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontFamily" Value="OnestMedium" />
-                <Setter Property="TextColor" Value="#306BF2" />
+                <Setter Property="TextColor" Value="{StaticResource Blue}" />
             </Style>
             <Style x:Key="BoldRegularText" BasedOn="{StaticResource RegularText}" TargetType="Label">
                 <Setter Property="FontFamily" Value="OnestBold" />
             </Style>
             <Style x:Key="SmallText" BasedOn="{StaticResource RegularText}" TargetType="Label">
                 <Setter Property="FontSize" Value="12" />
-                <Setter Property="TextColor" Value="#94949E" />
+                <Setter Property="TextColor" Value="{StaticResource Gray}" />
             </Style>
             <Style x:Key="Headline" BasedOn="{StaticResource RegularText}" TargetType="Label">
                 <Setter Property="FontSize" Value="24" />
@@ -47,15 +60,15 @@
             </Style>
             <Style x:Key="InputFrame" TargetType="Frame">
                 <Setter Property="Padding" Value="10,7.5,0,7" />
-                <Setter Property="BackgroundColor" Value="#F1F1F1" />
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkWhite}" />
                 <Setter Property="CornerRadius" Value="10" />
                 <Setter Property="HasShadow" Value="False" />
             </Style>
             <Style x:Key="InputEntry" TargetType="Entry">
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="FontFamily" Value="OnestMedium" />
-                <Setter Property="PlaceholderColor" Value="#94949E" />
-                <Setter Property="TextColor" Value="#1D1E2C" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource Gray}" />
+                <Setter Property="TextColor" Value="{StaticResource Black}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

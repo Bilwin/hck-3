@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="HackatonProject.Views.MultiRoomView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:agora="clr-namespace:Xamarin.Agora.Full.Forms;assembly=Xamarin.Agora.Full.Forms"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="70" />
+                <Setter Property="WidthRequest" Value="70" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <ListView
+            Grid.Row="1"
+            ItemsSource="{Binding UsersOnCall}"
+            RowHeight="200"
+            SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <agora:AgoraVideoView StreamUID="{Binding}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <agora:AgoraVideoView Grid.Row="0" Grid.RowSpan="2" StreamUID="0" />
+        <StackLayout
+            Grid.Row="2"
+            Margin="0,5"
+            HorizontalOptions="CenterAndExpand"
+            Orientation="Horizontal"
+            Spacing="5">
+            <Image Aspect="AspectFit" Source="unswitch_camera.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SwitchCameraCommand}" />
+                </Image.GestureRecognizers>
+                <Image.Triggers>
+                    <DataTrigger Binding="{Binding IsCameraSwitched}" TargetType="Image" Value="true">
+                        <Setter Property="Source" Value="switch_camera.png" />
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+            <Image Aspect="AspectFit" Source="unmute.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding AudioMuteCommand}" />
+                </Image.GestureRecognizers>
+                <Image.Triggers>
+                    <DataTrigger Binding="{Binding IsAudioMute}" TargetType="Image" Value="true">
+                        <Setter Property="Source" Value="mute.png" />
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+            <Image Aspect="AspectFit" Source="cameraon.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding VideoMuteCommand}" />
+                </Image.GestureRecognizers>
+                <Image.Triggers>
+                    <DataTrigger Binding="{Binding IsVideoMute}" TargetType="Image" Value="true">
+                        <Setter Property="Source" Value="cameraoff.png" />
+                    </DataTrigger>
+                </Image.Triggers>
+            </Image>
+            <Image Aspect="AspectFit" Source="hangup.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding EndSessionCommand}" />
+                </Image.GestureRecognizers>
+            </Image>
+        </StackLayout>
+    </Grid>
+</ContentPage>

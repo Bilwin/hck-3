@@ -3,24 +3,92 @@
     x:Class="HackatonProject.Views.ProfileView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewModes="clr-namespace:HackatonProject.ViewModels"
+    xmlns:local="clr-namespace:HackatonProject"
+    xmlns:views="clr-namespace:HackatonProject.Views"
+    xmlns:viewsModels="clr-namespace:HackatonProject.ViewModels"
     Style="{StaticResource ViewBase}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ProfileFrame" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkWhite}" />
+                <Setter Property="HasShadow" Value="False" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.BindingContext>
-        <viewModes:ProfileViewModel />
+        <viewsModels:ProfileViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout Margin="15">
-        <StackLayout Orientation="Horizontal">
-            <Label Style="{StaticResource SmallText}" Text="Name - " TextColor="White" />
-            <Label Style="{StaticResource RegularText}" Text="{Binding User.Name}" TextColor="White" />
-        </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label Style="{StaticResource SmallText}" Text="Email - " TextColor="White" />
-            <Label Style="{StaticResource RegularText}" Text="{Binding User.Email}" />
-        </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label Style="{StaticResource SmallText}" Text="Password - " TextColor="White" />
-            <Label Style="{StaticResource RegularText}" Text="{Binding User.Password}" TextColor="White" />
-        </StackLayout>
-    </StackLayout>
+    <ScrollView>
+        <Grid Margin="30,0" RowDefinitions="70, *">
+            <Grid Margin="0,15">
+                <ImageButton
+                    BackgroundColor="Transparent"
+                    Command="{Binding ToFeedCommand}"
+                    HeightRequest="40"
+                    HorizontalOptions="Start"
+                    Source="logo.png"
+                    WidthRequest="90" />
+                <ImageButton BackgroundColor="Transparent" HorizontalOptions="End" Source="settings" />
+            </Grid>
+            <StackLayout Grid.Row="1" Margin="0,15,0,0" Spacing="20">
+                <Label Style="{StaticResource Headline}" Text="Профиль" />
+                <StackLayout Spacing="8">
+                    <Frame Style="{StaticResource ProfileFrame}">
+                        <StackLayout Orientation="Horizontal" Spacing="15">
+                            <Image Source="amd1471.png" />
+                            <StackLayout Spacing="3">
+                                <Label Style="{StaticResource Headline}" Text="xxyy" TextColor="{StaticResource Black}" />
+                                <Label Style="{StaticResource RegularText}" Text="Изменить" TextColor="{StaticResource Red}" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Grid ColumnDefinitions="1*, 1.6*" HeightRequest="80">
+                        <Frame Style="{StaticResource ProfileFrame}">
+                            <StackLayout>
+                                <Label Style="{StaticResource BoldRegularText}" Text="Тариф" TextColor="{StaticResource Gray}" />
+                                <Label Style="{StaticResource SmallText}" Text="Pro" />
+                            </StackLayout>
+                        </Frame>
+                        <Frame Grid.Column="1" Style="{StaticResource ProfileFrame}">
+                            <StackLayout>
+                                <Label Style="{StaticResource BoldRegularText}" Text="Способы оплаты" TextColor="{StaticResource Gray}" />
+                                <Label Style="{StaticResource SmallText}" Text="1234" />
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                </StackLayout>
+                <Grid>
+                    <Label HorizontalOptions="Start" Style="{StaticResource Headline}" Text="Мои организации" />
+                    <Image HorizontalOptions="End" Source="plus.png" />
+                </Grid>
+                <Frame
+                    BackgroundColor="{StaticResource White}"
+                    CornerRadius="5"
+                    HasShadow="True"
+                    Style="{StaticResource ProfileFrame}">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="7">
+                            <Image Source="teamLogo.png" />
+                            <StackLayout Spacing="0">
+                                <Label
+                                    FontSize="16"
+                                    Style="{StaticResource Headline}"
+                                    Text="организация"
+                                    TextColor="{StaticResource Black}" />
+                                <Label Style="{StaticResource SmallText}" Text="Приватная" />
+                            </StackLayout>
+                        </StackLayout>
+                        <Label Style="{StaticResource RegularText}" Text="lorem ipsum dolor sit amet" TextColor="{StaticResource Black}" />
+                    </StackLayout>
+                </Frame>
+                <Grid Margin="0,10">
+                    <Label HorizontalOptions="Start" Style="{StaticResource Headline}" Text="Запланированные" />
+                    <Image HorizontalOptions="End" Source="plus.png" />
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>

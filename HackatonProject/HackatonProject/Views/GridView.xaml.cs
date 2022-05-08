@@ -8,7 +8,7 @@ namespace HackatonProject.Views
         {
             InitializeComponent();
         }
-     
+
         public View Body
         {
             get => BodyContent.Content;
